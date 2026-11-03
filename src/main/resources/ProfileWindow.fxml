@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <top>
@@ -22,14 +22,15 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0">
                <children>
-                  <Label prefHeight="30.0" text="Username: Denys">
+                  <Label prefHeight="30.0" text="Username: CryptoSolver">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label text="Registered: 2026" textFill="#171717a5" />
+                  <Label text="Registered: 4.11.2026" textFill="#171717a5" />
                </children>
             </VBox>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Total Score">

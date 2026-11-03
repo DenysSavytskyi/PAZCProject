@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
@@ -22,13 +21,13 @@
             <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
          </padding>
          <children>
-            <Label text="Challenge #1: Ciphertext">
+            <Label text="Challenge #1">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Label text="Time Remaining: 05:00" textFill="#810000">
+            <Label text="Time taken: 00:00" textFill="#810000">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -49,13 +48,13 @@
                   <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
                </padding>
                <children>
-                  <Label text="Encrypted Ciphertext:" />
+                  <Label text="Ciphertext:" />
                   <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" VBox.vgrow="ALWAYS" />
                   <Label text="Your Decryption Attempt:" />
                   <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Type your decrypted text here..." wrapText="true" VBox.vgrow="ALWAYS" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                      <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Buy Hint (-50 XP)" HBox.hgrow="ALWAYS" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Buy Hint" HBox.hgrow="ALWAYS" />
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Submit Answer" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
@@ -73,7 +72,7 @@
                   </Label>
                   <BarChart VBox.vgrow="ALWAYS">
                     <xAxis>
-                      <CategoryAxis side="BOTTOM" />
+                      <CategoryAxis />
                     </xAxis>
                     <yAxis>
                       <NumberAxis side="LEFT" />
