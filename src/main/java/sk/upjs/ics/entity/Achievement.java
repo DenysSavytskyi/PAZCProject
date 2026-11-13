@@ -1,4 +1,4 @@
-package sk.upjs.ics.achievements;
+package sk.upjs.ics.entity;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;

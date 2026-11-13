@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Window 3: lesson reader. lessonListBox is hidden by the controller when the algorithm has only one lesson. -->
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sk.upjs.ciphertrainer.controller.LessonController"
+            styleClass="view-root">
+    <top>
+        <fx:include fx:id="navbar" source="navbar.fxml"/>
+    </top>
+    <center>
+        <HBox spacing="16" styleClass="page">
+            <VBox fx:id="lessonListBox" styleClass="card" spacing="10" prefWidth="260" minWidth="200" maxWidth="320">
+                <Label text="%lesson.lessons" styleClass="section-title"/>
+                <ListView fx:id="lessonList" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <VBox styleClass="card" spacing="12" HBox.hgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label fx:id="algorithmNameLabel" styleClass="page-title"/>
+                    <Label fx:id="algorithmTypeBadge" styleClass="badge"/>
+                </HBox>
+                <Label fx:id="lessonTitleLabel" styleClass="section-title" wrapText="true"/>
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="transparent-scroll" VBox.vgrow="ALWAYS">
+                    <Label fx:id="contentLabel" styleClass="lesson-content" wrapText="true"/>
+                </ScrollPane>
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Button fx:id="backButton" text="%lesson.back" styleClass="secondary-button" onAction="#onBack"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="challengesButton" text="%lesson.goToChallenges" styleClass="primary-button" onAction="#onGoToChallenges"/>
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

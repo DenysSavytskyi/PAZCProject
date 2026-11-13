@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: postgres:19rc2
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: CryptoEdu
+      MYSQL_USER: CryptoEdu
+      MYSQL_PASSWORD: admin123
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./src/main/java/resources/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./src/main/java/resources/db/data.sql:/docker-entrypoint-initdb.d/data.sql
+    healthcheck:
+      test: [ "CMD", "ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10

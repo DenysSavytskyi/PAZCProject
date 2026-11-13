@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Window 7: profile + achievements. Achievement cards are added to achievementsPane by the controller. -->
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sk.upjs.ciphertrainer.controller.AchievementsController"
+            styleClass="view-root">
+    <top>
+        <fx:include fx:id="navbar" source="navbar.fxml"/>
+    </top>
+    <center>
+        <VBox spacing="16" styleClass="page">
+            <HBox styleClass="profile-card" alignment="CENTER_LEFT" spacing="16">
+                <Label fx:id="avatarLabel" styleClass="avatar"/>
+                <VBox spacing="2">
+                    <Label fx:id="usernameLabel" styleClass="page-title"/>
+                    <Label fx:id="memberSinceLabel" styleClass="page-subtitle"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <VBox spacing="2" alignment="CENTER">
+                    <Label text="%achievements.totalScore" styleClass="muted"/>
+                    <Label fx:id="totalScoreLabel" styleClass="stat-accent"/>
+                </VBox>
+                <VBox spacing="2" alignment="CENTER">
+                    <padding>
+                        <Insets left="24"/>
+                    </padding>
+                    <Label text="%achievements.unlocked" styleClass="muted"/>
+                    <Label fx:id="unlockedCountLabel" styleClass="stat-value"/>
+                </VBox>
+            </HBox>
+            <Label text="%achievements.title" styleClass="section-title"/>
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="transparent-scroll" VBox.vgrow="ALWAYS">
+                <FlowPane fx:id="achievementsPane" hgap="16" vgap="16" styleClass="cards-pane"/>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

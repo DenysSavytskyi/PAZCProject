@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Window 6: my attempts (history + unsolved challenges). -->
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sk.upjs.ciphertrainer.controller.AttemptsController"
+            styleClass="view-root">
+    <top>
+        <fx:include fx:id="navbar" source="navbar.fxml"/>
+    </top>
+    <center>
+        <VBox spacing="12" styleClass="page">
+            <VBox spacing="4">
+                <Label text="%attempts.title" styleClass="page-title"/>
+                <Label text="%attempts.subtitle" styleClass="page-subtitle"/>
+            </VBox>
+            <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                <tabs>
+                    <Tab text="%attempts.tab.history">
+                        <content>
+                            <VBox spacing="12" styleClass="tab-body">
+                                <HBox spacing="12" alignment="CENTER_LEFT">
+                                    <Label text="%attempts.filter" styleClass="muted"/>
+                                    <ComboBox fx:id="statusFilterCombo" prefWidth="180"/>
+                                    <Region HBox.hgrow="ALWAYS"/>
+                                    <Label fx:id="summaryLabel" styleClass="muted"/>
+                                </HBox>
+                                <TableView fx:id="attemptsTable" VBox.vgrow="ALWAYS">
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                    </columnResizePolicy>
+                                    <placeholder>
+                                        <Label text="%attempts.empty"/>
+                                    </placeholder>
+                                    <columns>
+                                        <TableColumn fx:id="historyDateColumn" text="%attempts.col.date" minWidth="150"/>
+                                        <TableColumn fx:id="historyAlgorithmColumn" text="%attempts.col.algorithm" minWidth="140"/>
+                                        <TableColumn fx:id="historyChallengeColumn" text="%attempts.col.challenge" minWidth="90"/>
+                                        <TableColumn fx:id="historyDifficultyColumn" text="%attempts.col.difficulty" minWidth="100"/>
+                                        <TableColumn fx:id="historyTimeColumn" text="%attempts.col.time" minWidth="70"/>
+                                        <TableColumn fx:id="historyStatusColumn" text="%attempts.col.status" minWidth="110"/>
+                                    </columns>
+                                </TableView>
+                                <HBox alignment="CENTER_RIGHT">
+                                    <Button fx:id="continueButton" text="%attempts.continue" styleClass="primary-button" onAction="#onContinue"/>
+                                </HBox>
+                            </VBox>
+                        </content>
+                    </Tab>
+                    <Tab text="%attempts.tab.unsolved">
+                        <content>
+                            <VBox spacing="12" styleClass="tab-body">
+                                <TableView fx:id="unsolvedTable" VBox.vgrow="ALWAYS">
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                    </columnResizePolicy>
+                                    <placeholder>
+                                        <Label text="%attempts.unsolved.empty"/>
+                                    </placeholder>
+                                    <columns>
+                                        <TableColumn fx:id="unsolvedAlgorithmColumn" text="%attempts.col.algorithm" minWidth="140"/>
+                                        <TableColumn fx:id="unsolvedChallengeColumn" text="%attempts.col.challenge" minWidth="90"/>
+                                        <TableColumn fx:id="unsolvedDifficultyColumn" text="%attempts.col.difficulty" minWidth="100"/>
+                                        <TableColumn fx:id="unsolvedRewardColumn" text="%attempts.col.reward" minWidth="100"/>
+                                    </columns>
+                                </TableView>
+                                <HBox alignment="CENTER_RIGHT">
+                                    <Button fx:id="solveButton" text="%attempts.solve" styleClass="primary-button" onAction="#onSolve"/>
+                                </HBox>
+                            </VBox>
+                        </content>
+                    </Tab>
+                </tabs>
+            </TabPane>
+        </VBox>
+    </center>
+</BorderPane>

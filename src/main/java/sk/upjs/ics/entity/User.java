@@ -1,12 +1,10 @@
-package sk.upjs.ics.users;
+package sk.upjs.ics.entity;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.With;
-import sk.upjs.ics.achievements.Achievement;
-import sk.upjs.ics.attempts.Attempt;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -30,9 +28,11 @@ public record User(
         @Min(0)
         Integer totalScore,
         @NotNull
-        OffsetDateTime createdAt
+        OffsetDateTime createdAt,
+        @NotNull
+        Boolean isAdmin
 ) {
-    public User(Long id, Map<Achievement, OffsetDateTime> achievements, List<Attempt> attempts, String username, String passwordHash, Integer totalScore, OffsetDateTime createdAt) {
+    public User(Long id, Map<Achievement, OffsetDateTime> achievements, List<Attempt> attempts, String username, String passwordHash, Integer totalScore, OffsetDateTime createdAt, Boolean isAdmin) {
         this.id = id;
         this.achievements = achievements;
         this.attempts = attempts;
@@ -40,5 +40,6 @@ public record User(
         this.passwordHash = passwordHash;
         this.totalScore = totalScore;
         this.createdAt = createdAt;
+        this.isAdmin = isAdmin;
     }
 }

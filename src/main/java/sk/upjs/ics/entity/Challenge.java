@@ -1,4 +1,4 @@
-package sk.upjs.ics.challenges;
+package sk.upjs.ics.entity;
 
 import jakarta.validation.constraints.*;
 import lombok.With;

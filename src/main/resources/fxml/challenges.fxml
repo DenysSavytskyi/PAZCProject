@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Window 4: list of challenges of one algorithm. -->
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sk.upjs.ciphertrainer.controller.ChallengesController"
+            styleClass="view-root">
+    <top>
+        <fx:include fx:id="navbar" source="navbar.fxml"/>
+    </top>
+    <center>
+        <VBox spacing="16" styleClass="page">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Button fx:id="backButton" text="%common.back" styleClass="secondary-button" onAction="#onBack"/>
+                <VBox spacing="2">
+                    <Label text="%challenges.title" styleClass="page-subtitle"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label fx:id="algorithmNameLabel" styleClass="page-title"/>
+                        <Label fx:id="algorithmTypeBadge" styleClass="badge"/>
+                    </HBox>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="lessonButton" text="%challenges.openLesson" styleClass="secondary-button" onAction="#onOpenLesson"/>
+            </HBox>
+            <TableView fx:id="challengesTable" VBox.vgrow="ALWAYS">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <placeholder>
+                    <Label text="%challenges.empty"/>
+                </placeholder>
+                <columns>
+                    <TableColumn fx:id="numberColumn" text="%challenges.col.number" minWidth="60" maxWidth="100"/>
+                    <TableColumn fx:id="difficultyColumn" text="%challenges.col.difficulty" minWidth="120"/>
+                    <TableColumn fx:id="rewardColumn" text="%challenges.col.reward" minWidth="100"/>
+                    <TableColumn fx:id="statusColumn" text="%challenges.col.status" minWidth="110"/>
+                </columns>
+            </TableView>
+            <HBox alignment="CENTER_RIGHT">
+                <Button fx:id="startButton" text="%challenges.start" styleClass="primary-button" onAction="#onStart"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

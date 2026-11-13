@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Window 1: sign in / register. Initial state = sign-in mode; LoginController switches texts for register mode. -->
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="sk.upjs.ciphertrainer.controller.LoginController"
+           styleClass="view-root">
+    <HBox StackPane.alignment="TOP_RIGHT" alignment="CENTER_RIGHT" maxWidth="-Infinity" maxHeight="-Infinity">
+        <padding>
+            <Insets top="16" right="20" bottom="0" left="20"/>
+        </padding>
+        <fx:include source="prefs_bar.fxml"/>
+    </HBox>
+    <VBox styleClass="auth-card" alignment="CENTER" spacing="12" prefWidth="420" maxWidth="420" maxHeight="-Infinity">
+        <StackPane.margin>
+            <Insets top="64" right="24" bottom="24" left="24"/>
+        </StackPane.margin>
+        <Label text="CT" styleClass="avatar"/>
+        <Label fx:id="titleLabel" text="%login.title.signIn" styleClass="page-title"/>
+        <Label text="%login.subtitle" styleClass="page-subtitle" wrapText="true" textAlignment="CENTER"/>
+        <TextField fx:id="usernameField" promptText="%login.username"/>
+        <PasswordField fx:id="passwordField" promptText="%login.password" onAction="#onSubmit"/>
+        <PasswordField fx:id="confirmPasswordField" promptText="%login.confirmPassword" onAction="#onSubmit"
+                       visible="false" managed="false"/>
+        <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" visible="false" managed="false"/>
+        <Button fx:id="submitButton" text="%login.signIn" styleClass="primary-button" maxWidth="Infinity" onAction="#onSubmit"/>
+        <Button fx:id="toggleModeButton" text="%login.noAccount" styleClass="link-button" onAction="#onToggleMode"/>
+    </VBox>
+</StackPane>

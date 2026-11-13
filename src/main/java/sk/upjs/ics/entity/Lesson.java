@@ -1,4 +1,4 @@
-package sk.upjs.ics.lessons;
+package sk.upjs.ics.entity;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

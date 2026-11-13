@@ -1,0 +1,33 @@
+/* Dark palette. Variables are consumed by base.css. */
+.root {
+    -app-bg: #0B1220;
+    -app-surface: #151E32;
+    -app-surface-alt: #1B2740;
+    -app-input: #0F1829;
+    -app-hover: #22304D;
+    -app-text: #E6EAF2;
+    -app-muted: #93A0B8;
+    -app-border: #2A3855;
+    -app-shadow: rgba(0, 0, 0, 0.45);
+
+    -app-accent: #6366F1;
+    -app-accent-hover: #4F52D9;
+    -app-accent-soft: #262D5C;
+    -app-accent-fg: #A5B4FC;
+    -app-accent-text: #FFFFFF;
+
+    -app-success: #4ADE80;  -app-success-soft: #14301F;
+    -app-danger: #F87171;   -app-danger-soft: #3B1A1E;
+    -app-warning: #FBBF24;  -app-warning-soft: #3A2D10;
+
+    -app-stream: #22D3EE;         -app-stream-soft: #0E2F3A;
+    -app-substitution: #A78BFA;   -app-substitution-soft: #2A2150;
+    -app-transposition: #FB923C;  -app-transposition-soft: #3A2414;
+
+    /* make built-in (Modena) controls dark */
+    -fx-base: #1B2740;
+    -fx-background: #0B1220;
+    -fx-control-inner-background: #0F1829;
+    -fx-control-inner-background-alt: #131D33;
+    -fx-text-base-color: #E6EAF2;
+}

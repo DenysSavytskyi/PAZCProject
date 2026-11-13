@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Window 8: admin panel (algorithms / lessons / challenges + hints). Only for users with is_admin = true. -->
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sk.upjs.ciphertrainer.controller.AdminController"
+            styleClass="view-root">
+    <top>
+        <fx:include fx:id="navbar" source="navbar.fxml"/>
+    </top>
+    <center>
+        <VBox spacing="12" styleClass="page">
+            <VBox spacing="4">
+                <Label text="%admin.title" styleClass="page-title"/>
+                <Label text="%admin.subtitle" styleClass="page-subtitle"/>
+            </VBox>
+            <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                <tabs>
+
+                    <!-- ===== Algorithms ===== -->
+                    <Tab text="%admin.tab.algorithms">
+                        <content>
+                            <HBox spacing="16" styleClass="tab-body">
+                                <TableView fx:id="algorithmTable" HBox.hgrow="ALWAYS">
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                    </columnResizePolicy>
+                                    <columns>
+                                        <TableColumn fx:id="algIdColumn" text="%admin.col.id" minWidth="50" maxWidth="80"/>
+                                        <TableColumn fx:id="algNameColumn" text="%admin.col.name" minWidth="160"/>
+                                        <TableColumn fx:id="algTypeColumn" text="%admin.col.type" minWidth="120"/>
+                                    </columns>
+                                </TableView>
+                                <VBox styleClass="form-card" spacing="8" prefWidth="320" minWidth="260" maxWidth="360">
+                                    <Label text="%admin.form" styleClass="section-title"/>
+                                    <Label text="%admin.algorithm.name" styleClass="field-label"/>
+                                    <TextField fx:id="algNameField"/>
+                                    <Label text="%admin.algorithm.type" styleClass="field-label"/>
+                                    <ComboBox fx:id="algTypeCombo" maxWidth="Infinity"/>
+                                    <Label fx:id="algStatusLabel" styleClass="status-label" wrapText="true" visible="false" managed="false"/>
+                                    <HBox spacing="8" alignment="CENTER_LEFT">
+                                        <Button text="%common.new" styleClass="secondary-button" onAction="#onAlgorithmNew"/>
+                                        <Button text="%common.save" styleClass="primary-button" onAction="#onAlgorithmSave"/>
+                                        <Button text="%common.delete" styleClass="danger-button" onAction="#onAlgorithmDelete"/>
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                        </content>
+                    </Tab>
+
+                    <!-- ===== Lessons ===== -->
+                    <Tab text="%admin.tab.lessons">
+                        <content>
+                            <HBox spacing="16" styleClass="tab-body">
+                                <TableView fx:id="lessonTable" HBox.hgrow="ALWAYS">
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                    </columnResizePolicy>
+                                    <columns>
+                                        <TableColumn fx:id="lessonIdColumn" text="%admin.col.id" minWidth="50" maxWidth="80"/>
+                                        <TableColumn fx:id="lessonAlgorithmColumn" text="%admin.col.algorithm" minWidth="140"/>
+                                        <TableColumn fx:id="lessonTitleColumn" text="%admin.col.title" minWidth="160"/>
+                                    </columns>
+                                </TableView>
+                                <VBox styleClass="form-card" spacing="8" prefWidth="420" minWidth="300" maxWidth="480">
+                                    <Label text="%admin.form" styleClass="section-title"/>
+                                    <Label text="%admin.lesson.algorithm" styleClass="field-label"/>
+                                    <ComboBox fx:id="lessonAlgorithmCombo" maxWidth="Infinity"/>
+                                    <Label text="%admin.lesson.title" styleClass="field-label"/>
+                                    <TextField fx:id="lessonTitleField"/>
+                                    <Label text="%admin.lesson.content" styleClass="field-label"/>
+                                    <TextArea fx:id="lessonContentArea" wrapText="true" VBox.vgrow="ALWAYS"/>
+                                    <Label fx:id="lessonStatusLabel" styleClass="status-label" wrapText="true" visible="false" managed="false"/>
+                                    <HBox spacing="8" alignment="CENTER_LEFT">
+                                        <Button text="%common.new" styleClass="secondary-button" onAction="#onLessonNew"/>
+                                        <Button text="%common.save" styleClass="primary-button" onAction="#onLessonSave"/>
+                                        <Button text="%common.delete" styleClass="danger-button" onAction="#onLessonDelete"/>
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                        </content>
+                    </Tab>
+
+                    <!-- ===== Challenges + hints ===== -->
+                    <Tab text="%admin.tab.challenges">
+                        <content>
+                            <HBox spacing="16" styleClass="tab-body">
+                                <TableView fx:id="challengeTable" HBox.hgrow="ALWAYS">
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                    </columnResizePolicy>
+                                    <columns>
+                                        <TableColumn fx:id="chIdColumn" text="%admin.col.id" minWidth="50" maxWidth="80"/>
+                                        <TableColumn fx:id="chAlgorithmColumn" text="%admin.col.algorithm" minWidth="140"/>
+                                        <TableColumn fx:id="chDifficultyColumn" text="%admin.col.difficulty" minWidth="90"/>
+                                        <TableColumn fx:id="chRewardColumn" text="%admin.col.reward" minWidth="80"/>
+                                    </columns>
+                                </TableView>
+                                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="transparent-scroll"
+                                            prefWidth="440" minWidth="320" maxWidth="480">
+                                    <content>
+                                        <VBox styleClass="form-card" spacing="8">
+                                            <Label text="%admin.form" styleClass="section-title"/>
+                                            <Label text="%admin.challenge.algorithm" styleClass="field-label"/>
+                                            <ComboBox fx:id="chAlgorithmCombo" maxWidth="Infinity"/>
+                                            <Label text="%admin.challenge.cipher" styleClass="field-label"/>
+                                            <TextArea fx:id="chCipherArea" wrapText="true" prefRowCount="3"/>
+                                            <Label text="%admin.challenge.plain" styleClass="field-label"/>
+                                            <TextArea fx:id="chPlainArea" wrapText="true" prefRowCount="2"/>
+                                            <HBox spacing="12">
+                                                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                                                    <Label text="%admin.challenge.difficulty" styleClass="field-label"/>
+                                                    <Spinner fx:id="chDifficultySpinner" editable="true" maxWidth="Infinity">
+                                                        <valueFactory>
+                                                            <SpinnerValueFactory.IntegerSpinnerValueFactory min="1" max="5" initialValue="1"/>
+                                                        </valueFactory>
+                                                    </Spinner>
+                                                </VBox>
+                                                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                                                    <Label text="%admin.challenge.reward" styleClass="field-label"/>
+                                                    <Spinner fx:id="chRewardSpinner" editable="true" maxWidth="Infinity">
+                                                        <valueFactory>
+                                                            <SpinnerValueFactory.IntegerSpinnerValueFactory min="0" max="10000" initialValue="100" amountToStepBy="10"/>
+                                                        </valueFactory>
+                                                    </Spinner>
+                                                </VBox>
+                                            </HBox>
+                                            <Label fx:id="challengeStatusLabel" styleClass="status-label" wrapText="true" visible="false" managed="false"/>
+                                            <HBox spacing="8" alignment="CENTER_LEFT">
+                                                <Button text="%common.new" styleClass="secondary-button" onAction="#onChallengeNew"/>
+                                                <Button text="%common.save" styleClass="primary-button" onAction="#onChallengeSave"/>
+                                                <Button text="%common.delete" styleClass="danger-button" onAction="#onChallengeDelete"/>
+                                            </HBox>
+                                            <Separator/>
+                                            <Label text="%admin.hints" styleClass="section-title"/>
+                                            <ListView fx:id="hintList" prefHeight="130"/>
+                                            <Label text="%admin.hint.text" styleClass="field-label"/>
+                                            <TextField fx:id="hintTextField"/>
+                                            <HBox spacing="8" alignment="BOTTOM_LEFT">
+                                                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                                                    <Label text="%admin.hint.cost" styleClass="field-label"/>
+                                                    <Spinner fx:id="hintCostSpinner" editable="true" maxWidth="Infinity">
+                                                        <valueFactory>
+                                                            <SpinnerValueFactory.IntegerSpinnerValueFactory min="0" max="1000" initialValue="10" amountToStepBy="5"/>
+                                                        </valueFactory>
+                                                    </Spinner>
+                                                </VBox>
+                                                <Button text="%admin.hint.add" styleClass="primary-button" onAction="#onHintAdd"/>
+                                                <Button text="%admin.hint.delete" styleClass="danger-button" onAction="#onHintDelete"/>
+                                            </HBox>
+                                        </VBox>
+                                    </content>
+                                </ScrollPane>
+                            </HBox>
+                        </content>
+                    </Tab>
+
+                </tabs>
+            </TabPane>
+        </VBox>
+    </center>
+</BorderPane>

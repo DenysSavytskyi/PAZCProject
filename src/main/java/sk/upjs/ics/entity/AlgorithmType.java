@@ -1,4 +1,4 @@
-package sk.upjs.ics.algorithms;
+package sk.upjs.ics.entity;
 
 public enum AlgorithmType {
     SUBSTITUTION,

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Top navigation bar, included by every main window. -->
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sk.upjs.ciphertrainer.controller.NavbarController"
+      styleClass="navbar" alignment="CENTER_LEFT" spacing="6">
+    <padding>
+        <Insets top="10" right="20" bottom="10" left="20"/>
+    </padding>
+    <Label text="%app.title" styleClass="navbar-brand">
+        <HBox.margin>
+            <Insets right="16"/>
+        </HBox.margin>
+    </Label>
+    <Button fx:id="algorithmsButton" text="%nav.algorithms" styleClass="nav-button" onAction="#onAlgorithms"/>
+    <Button fx:id="attemptsButton" text="%nav.attempts" styleClass="nav-button" onAction="#onAttempts"/>
+    <Button fx:id="achievementsButton" text="%nav.achievements" styleClass="nav-button" onAction="#onAchievements"/>
+    <Button fx:id="adminButton" text="%nav.admin" styleClass="nav-button" onAction="#onAdmin" visible="false" managed="false"/>
+    <Region HBox.hgrow="ALWAYS"/>
+    <Label fx:id="scoreLabel" styleClass="badge"/>
+    <Label fx:id="usernameLabel" styleClass="navbar-user"/>
+    <fx:include fx:id="prefsBar" source="prefs_bar.fxml"/>
+    <Button fx:id="logoutButton" text="%nav.logout" styleClass="secondary-button" onAction="#onLogout"/>
+</HBox>

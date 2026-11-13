@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Window 2: algorithm menu with search, type filter and sorting. Cards are added to cardsPane by the controller. -->
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sk.upjs.ciphertrainer.controller.AlgorithmsController"
+            styleClass="view-root">
+    <top>
+        <fx:include fx:id="navbar" source="navbar.fxml"/>
+    </top>
+    <center>
+        <VBox spacing="16" styleClass="page">
+            <VBox spacing="4">
+                <Label text="%algorithms.title" styleClass="page-title"/>
+                <Label text="%algorithms.subtitle" styleClass="page-subtitle"/>
+            </VBox>
+            <HBox spacing="12" alignment="CENTER_LEFT" styleClass="toolbar-card">
+                <TextField fx:id="searchField" promptText="%algorithms.search" HBox.hgrow="ALWAYS"/>
+                <Label text="%algorithms.type" styleClass="muted"/>
+                <ComboBox fx:id="typeCombo" prefWidth="170"/>
+                <Label text="%algorithms.sort" styleClass="muted"/>
+                <ComboBox fx:id="sortCombo" prefWidth="140"/>
+            </HBox>
+            <Label fx:id="resultCountLabel" styleClass="muted"/>
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="transparent-scroll" VBox.vgrow="ALWAYS">
+                <FlowPane fx:id="cardsPane" hgap="16" vgap="16" styleClass="cards-pane"/>
+            </ScrollPane>
+            <Label fx:id="emptyLabel" text="%algorithms.empty" styleClass="muted" visible="false" managed="false"/>
+        </VBox>
+    </center>
+</BorderPane>

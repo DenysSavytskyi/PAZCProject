@@ -1,0 +1,33 @@
+/* Light palette. Variables are consumed by base.css. */
+.root {
+    -app-bg: #F3F5FA;
+    -app-surface: #FFFFFF;
+    -app-surface-alt: #F1F4F9;
+    -app-input: #FFFFFF;
+    -app-hover: #E9EDF6;
+    -app-text: #1E293B;
+    -app-muted: #64748B;
+    -app-border: #DDE3EE;
+    -app-shadow: rgba(15, 23, 42, 0.08);
+
+    -app-accent: #4F46E5;
+    -app-accent-hover: #4338CA;
+    -app-accent-soft: #E7E8FD;
+    -app-accent-fg: #4338CA;
+    -app-accent-text: #FFFFFF;
+
+    -app-success: #15803D;  -app-success-soft: #DCFCE7;
+    -app-danger: #DC2626;   -app-danger-soft: #FEE2E2;
+    -app-warning: #B45309;  -app-warning-soft: #FEF3C7;
+
+    -app-stream: #0E7490;         -app-stream-soft: #CFFAFE;
+    -app-substitution: #7C3AED;   -app-substitution-soft: #EDE9FE;
+    -app-transposition: #C2410C;  -app-transposition-soft: #FFEDD5;
+
+    /* make built-in (Modena) controls follow the palette */
+    -fx-base: #E9EDF6;
+    -fx-background: #F3F5FA;
+    -fx-control-inner-background: #FFFFFF;
+    -fx-control-inner-background-alt: #F7F9FC;
+    -fx-text-base-color: #1E293B;
+}

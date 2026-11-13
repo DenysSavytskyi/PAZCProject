@@ -1,4 +1,4 @@
-package sk.upjs.ics.hints;
+package sk.upjs.ics.entity;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
